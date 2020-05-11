@@ -37,6 +37,7 @@ export default class MyDocument extends Document {
       <link rel='stylesheet'   href='https://cdnjs.cloudflare.com/ajax/libs/antd/3.22.0/antd.min.css' />
       </Head>
       <body>
+        
         <Main/>
         <NextScript/>
       </body>
