@@ -43,6 +43,16 @@ const StyledWrapper = styled.div`
 .site-layout .site-layout-background {
   background: #fff;
 }
+@media all and (max-width: 375px) {
+  .ant-btn {
+    display: flex;
+    -webkit-flex-flow: column ;
+    flex-flow: column ;
+    padding: 0;
+    flex-wrap: nowrap;
+
+  }
+}
 `
 const HomePage = () => {
     const renderContent = (column = 2) => (
@@ -62,10 +72,10 @@ const HomePage = () => {
       const extraContent = (
         <div
           style={{
-            display: 'inline',
+            display: 'flex',
             width: 'max-content',
             justifyContent: 'flex-end',
-            backgroundColor: 'red',
+            flexWrap: 'nowrap',
           }}
         >
           <Statistic
@@ -134,13 +144,7 @@ const HomePage = () => {
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
-      extra={[
-        <Button key="3">Operation</Button>,
-        <Button key="2">Operation</Button>,
-        <Button key="1" type="primary">
-          Primary
-        </Button>,
-      ]}
+     
       footer={
         <Tabs defaultActiveKey="1">
           <TabPane tab="Details" key="1" />
@@ -149,6 +153,13 @@ const HomePage = () => {
       }
     >
       <Content extra={extraContent}>{renderContent()}</Content>
+     
+        <Button key="3">Operation</Button>
+        <Button key="2">Operation</Button>
+        <Button key="1" type="primary">
+          Primary
+        </Button>
+
     </PageHeader>
         </div>
       </Content>

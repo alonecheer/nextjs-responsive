@@ -4,14 +4,15 @@ import locale from 'antd/lib/date-picker/locale/th_TH';
 import { DatePicker } from 'antd';
 
 const Date = () => {
+
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     function onChange(date, dateString) {
-        console.log(date, dateString);
+        console.log(dateString);
       }
   return (
     <div >
 
-      <DatePicker locale={locale} />
+      <DatePicker locale={locale} onChange={onChange}  />
       <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
     </div>
   )
