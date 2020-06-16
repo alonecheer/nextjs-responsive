@@ -17,15 +17,46 @@ const StyledWrapper = styled.div`
   }
   .menu-item1 {
     width: 31.25%;
-    height: 100px;
-    background: bisque;
+    height: 27px;
+    /*background: bisque;*/
     float: left;
+    padding-left: 15px;
+    padding-top: 5px;
   }
   .menu-item2 {
     width: 68.75%;
-    height: 100px;
-    background: burlywood;
+    height: 27px;
+    /*background: burlywood;*/
     float: left;
+  }
+  .menu-item2 input {
+    margin-left: 15px;
+  }
+  @media screen and (max-width: 320px) {
+    .menu-item1 {
+      width: 100%;
+      float: none;
+    }
+    .menu-item2 {
+      width: 100%;
+      float: none;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
 `;
 
@@ -38,29 +69,22 @@ const ContentComponent = () => {
           กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
         </h1>
       </div>
-      <div>
-        <h2>1. รายละเอียด</h2>
-      </div>
-
-      <div className="menu-item1">
-        <div>
-          <span>เอกสารที่ มอ.696/</span>{" "}
-        </div>
-        <div>
-          <span>ลงวันที่</span>{" "}
-        </div>
-      </div>
-      <div className="menu-item2"></div>
-      <div>
-        <span>
-          ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
-        </span>{" "}
-      </div>
-      <div>
-        <span>ชื่อโครงการ (ถ้ามี)</span>{" "}
-      </div>
-      <div>
-        <span>วันที่ต้องใช้พัสดุ</span>{" "}
+     
+      <div style={{ overflowX: "auto" }}>
+      <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    <tr>
+      <td>เอกสารของ</td>
+      <td><input ></input></td>
+    </tr>
+    <tr>
+      <td>เอกสารของ</td>
+      <td><input ></input></td>
+    </tr>
+  </table>
       </div>
     </StyledWrapper>
   );
