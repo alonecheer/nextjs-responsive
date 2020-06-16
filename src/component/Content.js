@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb, Carousel } from "antd";
+import { Layout, Breadcrumb, Carousel, Tag, Divider } from "antd";
 
 const { Header, Content, Sider, Footer } = Layout;
 
@@ -9,44 +9,31 @@ const StyledWrapper = styled.div`
   font-family: "Baloo Bhaina 2", cursive;
   max-width: 960px;
   margin: 0 auto;
-  .menu-grid {
-    display: grid;
-    grid-template-columns: 255px 1fr;
-  }
   .title h1 {
     font-size: 30px;
     text-align: center;
-    padding-bottom: 30px;
     color: #212529;
   }
-  .menu-item1 {
-    width: 31.25%;
-    height: 27px;
-    /*background: bisque;*/
-    float: left;
-    padding-left: 15px;
-    padding-top: 5px;
+  .sub-title {
+    font-size: 30px;
+    padding-bottom: 5px;
+    padding-top: 20px;
   }
-  .menu-item2 {
-    width: 68.75%;
-    height: 27px;
-    /*background: burlywood;*/
-    float: left;
-  }
-  /* button, input, optgroup, select, textarea {
-    margin: 0;
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
-    width: 100%
-} */
   input {
-    border: 2px solid #212529;
+    border: none;
+    border-bottom: 2px solid #212529;
     padding: 10px;
-    border-radius: 25px;
     width: 100%;
   }
+
+  input:focus {
+    outline: none;
+  }
+  .menu {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -54,31 +41,15 @@ const StyledWrapper = styled.div`
     border: 1px solid #ddd;
   }
 
+  th,
   td {
     text-align: left;
     padding: 8px;
-    font-size: 20px;
   }
 
-  th {
-    text-align: left;
-    padding: 8px;
-    font-size: 30px;
-  }
-
-  tr:nth-child(even) {
+  /* tr:nth-child(even) {
     background-color: #f2f2f2;
-  }
-  .sub-title {
-    font-size: 30px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-  }
-  .menu {
-    font-size: 18px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-  }
+  } */
 `;
 
 const ContentComponent = () => {
@@ -90,6 +61,7 @@ const ContentComponent = () => {
           กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
         </h1>
       </div>
+      {/* ############################################## Header 1 ##############################################*/}
       {/* -------------------------------- หัวข้อ --------------------------------*/}
       <div className="sub-title">1.รายละเอียด</div>
       {/* ---------------------------------------------------------------------------*/}
@@ -97,48 +69,177 @@ const ContentComponent = () => {
       <div className="menu">เอกสารของ</div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
       {/* ---------------------------------------------------------------------------*/}
       {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
-      <div className="menu">เอกสารที่ มอ.696/</div>
+      <div className="menu">ลงวันที่</div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
       {/* ---------------------------------------------------------------------------*/}
       {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
-      <div className="menu">เอกสารที่ มอ.696/</div>
+      <div className="menu">
+        ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
+      </div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
       {/* ---------------------------------------------------------------------------*/}
       {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
-      <div className="menu">เอกสารที่ มอ.696/</div>
+      <div className="menu">ชื่อโครงการ (ถ้ามี)</div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
       {/* ---------------------------------------------------------------------------*/}
       {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
-      <div className="menu">เอกสารที่ มอ.696/</div>
+      <div className="menu">วันที่ต้องใช้พัสดุ</div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
-
+      {/* ############################################## Header 2 ##############################################*/}
 
       {/* -------------------------------- หัวข้อ --------------------------------*/}
       <div className="sub-title">2.รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน</div>
       {/* ---------------------------------------------------------------------------*/}
       {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
-      <div className="menu">เอกสารที่ มอ.696/</div>
+      <div className="menu">
+        รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
+        (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม) (จำนวนแผ่น)
+      </div>
       {/* -------------------------------- ช่อง Input -------------------------------*/}
       <div className="sub-menu">
-        <input type="text" name="text" placeholder="text" />
+        <input type="text" name="text" />
       </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+        (จำนวนแผ่น)
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง (จำนวนแผ่น)
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* ############################################## Header 3 ##############################################*/}
 
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">3.คณะกรรมการ</div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>ประธานกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>ประธานกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="text" />
+      </div>
+      {/* ############################################## Header 4 ##############################################*/}
+
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">4.แหล่งเงิน</div>
+
+      <div style={{ overflowX: "auto" }}>
+        <table>
+          <tr>
+            <td>เงินอุดหนุนจากรัฐบาล ปี</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>เงินรายได้ ปี</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>เงินรายได้สะสม ปี</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>ทิศทาง</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>นโยบาย</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>ผลงาน</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>งาน</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>หมวดรายจ่าย</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>หมวดย่อย</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>ชื่อรายการ</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+          <tr>
+            <td>เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้)</td>
+            <td><input type="text" name="text" /></td>
+          </tr>
+        </table>
+      </div>
     </StyledWrapper>
   );
 };
