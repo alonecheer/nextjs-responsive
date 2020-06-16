@@ -1,37 +1,27 @@
 import Head from "next/head";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
+const StyledWrapper = styled.div`
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: burlywood;
+  }
+`;
 const Index = () => {
-  const [data, setData] = useState([]);
-  const loadedata = async () => {
-    var result = await axios.get(`http://localhost:3001/player/value/1`);
-    console.log("result = ", result.data);
-    setData(result.data);
-  };
-  useEffect(() => {
-    loadedata();
-  }, []);
+  useEffect(() => {}, []);
+
   return (
-    <div className="container">
-      <Head>
-        <title>Index Page</title>
-      </Head>
-      {data.map((datas, index) => {
-              return (
-                <div key={index}>
-                  id = {datas.id}
-                  <br></br>
-                  name = {datas.name}
-                  <br></br>
-                  num = {datas.num}
-                  <br></br>
-                  teamid = {datas.teamId}
-                  <br></br>
-                  team = {datas.team.name}
-                </div>
-              )
-            })}
+    <StyledWrapper>
+      <div className="container">
+      <div className="container">
+        <div className="main">Main</div>
+        <div className="menu1">Menu1</div>
+      </div>
     </div>
+    </StyledWrapper>
+    
   );
 };
 export default Index;
