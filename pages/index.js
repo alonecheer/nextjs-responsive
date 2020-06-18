@@ -27,6 +27,7 @@ const Index = () => {
       dataIndex: 'order_id',
       key: 'order_id',
       render: text => <a>{text}</a>,
+      
     },
     {
       title: 'ผู้บันทึกรายการ',
@@ -61,7 +62,7 @@ const Index = () => {
 
   return (
     <StyledWrapper>
-        <Table columns={columns} dataSource={history} key={history.length} />
+        <Table columns={columns} dataSource={history} rowKey={record => record.order_id}/>
     </StyledWrapper>
   );
 };
