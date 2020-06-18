@@ -1,68 +1,85 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
-import { Table } from 'antd';
+import axios from "axios";
+import { Table, Space, Tag, Button } from "antd";
 import styled from "styled-components";
-const StyledWrapper = styled.div`
-
-`;
+const StyledWrapper = styled.div``;
 const Index = () => {
-  const [history, setHistoty] = useState([])
+  const [history, setHistoty] = useState([]);
   //console.log('data =',history)
-  const wholeArray = Object.keys(history).map((key => history[key]));
+  const wholeArray = Object.keys(history).map((key) => history[key]);
   console.log(wholeArray);
   const getForm001Bysid = async () => {
-    var found = await axios.get(
-      `http://localhost:3001/form001/6035512021`
-    )
+    var found = await axios.get(`http://localhost:3001/form001/6035512021`);
     //console.log('found = ', found.data)
-    setHistoty(found.data)
-    
-    }
+    setHistoty(found.data);
+  };
   useEffect(() => {
-    getForm001Bysid()
-  }, [])
+    getForm001Bysid();
+  }, []);
   const columns = [
     {
-      title: 'ใบรายการที่',
-      dataIndex: 'order_id',
-      key: 'order_id',
-      render: text => <a>{text}</a>,
-      
+      title: "ใบรายการที่",
+      dataIndex: "order_id",
+      key: "order_id",
+      render: (text) => <a>{text}</a>,
+      align: "center",
     },
     {
-      title: 'ผู้บันทึกรายการ',
-      dataIndex: 'sid',
-      key: 'sid',
-      responsive: ['md'],
+      title: "ผู้บันทึกรายการ",
+      dataIndex: "sid",
+      key: "sid",
+      responsive: ["md"],
+      align: "center",
     },
     {
-      title: 'วันที่บันทึกใบรายการ',
-      dataIndex: 'o_date',
-      key: 'o_date',
-      responsive: ['lg'],
+      title: "วันที่บันทึกใบรายการ",
+      dataIndex: "o_date",
+      key: "o_date",
+      responsive: ["lg"],
+      align: "center",
     },
     {
-      title: 'ชื่อโครงการ',
-      dataIndex: 'o_projectname',
-      key: 'o_projectname',
-      responsive: ['lg'],
+      title: "ชื่อโครงการ",
+      dataIndex: "o_projectname",
+      key: "o_projectname",
+      responsive: ["lg"],
     },
     {
-      title: 'สถานะ',
+      title: "สถานะ",
       render: (record) => record.status_id.s_detail_en,
-      responsive: ['lg'],
+      responsive: ["lg"],
+      align: "center",
     },
     {
-      title: 'ประเภทใบรายการ',
+      title: "ประเภทใบรายการ",
       render: (record) => record.typeform.o_typedoc_name,
-      responsive: ['lg'],
+      responsive: ["lg"],
+      align: "center",
+    },
+    {
+      title: "ดำเนินการ",
+      render: (record) => (
+        <Space size="small">
+          <div>
+            <Button style={{marginRight: '5px'}} type="primary">primary</Button>
+            <Button style={{marginRight: '5px'}} type="ghost">ghost</Button>
+            <Button style={{marginRight: '5px'}} type="dashed">dashed</Button>
+            <Button style={{marginRight: '5px'}} type="danger">danger</Button>
+          </div>
+        </Space>
+      ),
+      responsive: ["md"],
+      align: "center",
     },
   ];
-  
 
   return (
     <StyledWrapper>
-        <Table columns={columns} dataSource={history} rowKey={record => record.order_id}/>
+      <Table
+        columns={columns}
+        dataSource={history}
+        rowKey={(record) => record.order_id}
+      />
     </StyledWrapper>
   );
 };
