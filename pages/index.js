@@ -23,40 +23,42 @@ const Index = () => {
   }, [])
   const columns = [
     {
-      title: 'Order_id',
+      title: 'ใบรายการที่',
       dataIndex: 'order_id',
       key: 'order_id',
       render: text => <a>{text}</a>,
     },
     {
-      title: 'o_date',
-      dataIndex: 'o_date',
-      key: 'o_date',
+      title: 'ผู้บันทึกรายการ',
+      dataIndex: 'sid',
+      key: 'sid',
       responsive: ['md'],
     },
     {
-      title: 'o_projectname',
+      title: 'วันที่บันทึกใบรายการ',
+      dataIndex: 'o_date',
+      key: 'o_date',
+      responsive: ['lg'],
+    },
+    {
+      title: 'ชื่อโครงการ',
       dataIndex: 'o_projectname',
       key: 'o_projectname',
       responsive: ['lg'],
     },
+    {
+      title: 'สถานะ',
+      render: (record) => record.status_id.s_detail_en,
+      responsive: ['lg'],
+    },
+    {
+      title: 'ประเภทใบรายการ',
+      render: (record) => record.typeform.o_typedoc_name,
+      responsive: ['lg'],
+    },
   ];
   
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    
-  ];
+
   return (
     <StyledWrapper>
         <Table columns={columns} dataSource={history} key={history.length} />
