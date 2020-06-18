@@ -7,8 +7,8 @@ const StyledWrapper = styled.div`
 `;
 const Index = () => {
   const [history, setHistoty] = useState([])
-  console.log('data =',history)
-  const wholeArray = Object.keys(history).map(key => history[key]);
+  //console.log('data =',history)
+  const wholeArray = Object.keys(history).map((key => history[key]));
   console.log(wholeArray);
   const getForm001Bysid = async () => {
     var found = await axios.get(
@@ -59,7 +59,7 @@ const Index = () => {
   ];
   return (
     <StyledWrapper>
-        <Table columns={columns} dataSource={history} />
+        <Table columns={columns} dataSource={history} key={history.length} />
     </StyledWrapper>
   );
 };
