@@ -13,8 +13,8 @@ const StyledWrapper = styled.div`
 const Index = () => {
   const [history, setHistoty] = useState([]);
   //console.log('data =',history)
-  const wholeArray = Object.keys(history).map((key) => history[key]);
-  console.log(wholeArray);
+  // const wholeArray = Object.keys(history).map((key) => history[key]);
+  // console.log(wholeArray);
   const getForm001Bysid = async () => {
     var found = await axios.get(`http://localhost:3001/form001/6035512021`);
     //console.log('found = ', found.data)
@@ -26,8 +26,8 @@ const Index = () => {
 
   const handleMenuClick = (e,order_id) => {
     message.info('Click on menu item.');
-    console.log('click', typeof(e.key));
-    console.log('click order_id', typeof(order_id));
+    console.log('click', (e.key));
+    console.log('click order_id', (order_id));
     if (e.key === '1'){
       return Router.push({
         pathname: "/pageview",
@@ -54,21 +54,20 @@ const Index = () => {
         query: { order_id: order_id },
       });
     }
-      return console.log('finish')
   }
   const menu = (order_id) =>{
     return (<div>
       <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
-        <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
+        <Menu.Item keys="1" defaultValue={order_id} icon={<UserOutlined />}>
           View {order_id}
         </Menu.Item>
-        <Menu.Item key="2" icon={<UserOutlined />}>
+        <Menu.Item keys="2" icon={<UserOutlined />}>
           Edit
         </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
+        <Menu.Item keys="3" icon={<UserOutlined />}>
           Delete
         </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
+        <Menu.Item keys="3" icon={<UserOutlined />}>
           PDF
         </Menu.Item>
       </Menu>
