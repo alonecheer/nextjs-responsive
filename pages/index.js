@@ -26,11 +26,11 @@ const Index = () => {
     message.info('Click on menu item.');
     console.log('click', e);
   }
-  const menu = () =>{
+  const menu = (order_id) =>{
     return (<div>
       <Menu onClick={handleMenuClick}>
         <Menu.Item key="1" icon={<UserOutlined />}>
-          1st menu item
+          1st menu item {order_id}
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
           2nd menu item
@@ -46,10 +46,10 @@ const Index = () => {
         title: "ใบรายการที่",
         dataIndex: "order_id",
         key: "order_id",
-        render: (text) => (<>
+        render: (text,record) => (<>
         <a>
           {text}
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={menu(record.order_id)}>
         <Button>
           Button <DownOutlined />
         </Button>
