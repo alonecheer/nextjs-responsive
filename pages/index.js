@@ -23,14 +23,20 @@ const Index = () => {
   useEffect(() => {
     getForm001Bysid();
   }, []);
-  const handleMenuClick = (order_id) => {
-    message.info(`Click on menu item. ${order_id}`);
-    console.log('click', order_id);
+  // const handleMenuClick = (order_id,key) => {
+  //   message.info(`Click on menu item. ${order_id}`);
+  //   console.log('click', order_id);
+    
+  // }
+  const handleMenuClick = (e,order_id) => {
+    message.info('Click on menu item.');
+    console.log('click', e);
+    console.log('click order_id', order_id);
   }
   const menu = (order_id) =>{
     return (<div>
-      <Menu onClick={()=>{handleMenuClick(order_id)}}>
-        <Menu.Item key="1" icon={<UserOutlined />}>
+      <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
+        <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
           1st menu item {order_id}
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
