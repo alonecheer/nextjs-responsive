@@ -23,23 +23,36 @@ const Index = () => {
   useEffect(() => {
     getForm001Bysid();
   }, []);
-  // const handleMenuClick = (order_id,key) => {
-  //   message.info(`Click on menu item. ${order_id}`);
-  //   console.log('click', order_id);
-    
-  // }
+
   const handleMenuClick = (e,order_id) => {
     message.info('Click on menu item.');
     console.log('click', typeof(e.key));
     console.log('click order_id', typeof(order_id));
-    if (e.key === '1')
+    if (e.key === '1'){
       return Router.push({
-        pathname: "/input",
+        pathname: "/pageview",
+        query: { order_id: order_id },
+      });}
+
+    else if (e.key === '2'){
+      return Router.push({
+      pathname: "/pageedit",
+      query: { order_id: order_id },
+    });
+    }
+    
+    else if (e.key === '3'){
+      return Router.push({
+      pathname: "/pageedit",
+      query: { order_id: order_id },
+    });
+    }
+
+    else {
+      return Router.push({
+        pathname: "/pageedit",
         query: { order_id: order_id },
       });
-    
-    else {
-      return console.log('no')
     }
       return console.log('finish')
   }
@@ -47,13 +60,16 @@ const Index = () => {
     return (<div>
       <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
         <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
-          1st menu item {order_id}
+          View {order_id}
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
-          2nd menu item
+          Edit
         </Menu.Item>
         <Menu.Item key="3" icon={<UserOutlined />}>
-          3rd item
+          Delete
+        </Menu.Item>
+        <Menu.Item key="3" icon={<UserOutlined />}>
+          PDF
         </Menu.Item>
       </Menu>
     </div>)
