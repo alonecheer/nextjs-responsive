@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Space, Tag, Button,Dropdown , Menu,message } from "antd";
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import Router from "next/router";
 import styled from "styled-components";
 const StyledWrapper = styled.div`
  max-width: 1200px;
@@ -22,13 +23,13 @@ const Index = () => {
   useEffect(() => {
     getForm001Bysid();
   }, []);
-  const handleMenuClick = (e) => {
-    message.info('Click on menu item.');
-    console.log('click', e);
+  const handleMenuClick = (order_id) => {
+    message.info(`Click on menu item. ${order_id}`);
+    console.log('click', order_id);
   }
   const menu = (order_id) =>{
     return (<div>
-      <Menu onClick={handleMenuClick}>
+      <Menu onClick={()=>{handleMenuClick(order_id)}}>
         <Menu.Item key="1" icon={<UserOutlined />}>
           1st menu item {order_id}
         </Menu.Item>
@@ -47,14 +48,14 @@ const Index = () => {
         dataIndex: "order_id",
         key: "order_id",
         render: (text,record) => (<>
-        <a>
-          {text}
+        <a style={{marginRight:"5px"}}>
+          {text}</a>
           <Dropdown overlay={menu(record.order_id)}>
         <Button>
           Button <DownOutlined />
         </Button>
       </Dropdown>
-        </a></>),
+        </>),
         align: "center",
       },
       {
