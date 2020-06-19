@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import Router from 'next/router'
 import Toprint from './toprint';
+import { useRouter } from 'next/router'
 import Testpass from './testpass'
 const Input = () => {
+  const router = useRouter()
+  const order_id = router.query.order_id
+
 const [email,setEmail] = useState('')
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = values => {
@@ -28,7 +32,7 @@ const [email,setEmail] = useState('')
        
       <button type="submit">Submit</button>
     </form>
-  
+      {order_id}
         </div>
     )
 }

@@ -30,8 +30,18 @@ const Index = () => {
   // }
   const handleMenuClick = (e,order_id) => {
     message.info('Click on menu item.');
-    console.log('click', e);
-    console.log('click order_id', order_id);
+    console.log('click', typeof(e.key));
+    console.log('click order_id', typeof(order_id));
+    if (e.key === '1')
+      return Router.push({
+        pathname: "/input",
+        query: { order_id: order_id },
+      });
+    
+    else {
+      return console.log('no')
+    }
+      return console.log('finish')
   }
   const menu = (order_id) =>{
     return (<div>
