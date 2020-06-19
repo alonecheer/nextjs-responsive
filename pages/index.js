@@ -26,7 +26,7 @@ const Index = () => {
 
   const handleMenuClick = (e,order_id) => {
     message.info('Click on menu item.');
-    console.log('click', (e.key));
+    console.log('click', typeof(e.key));
     console.log('click order_id', (order_id));
     if (e.key === '1'){
       return Router.push({
@@ -58,16 +58,16 @@ const Index = () => {
   const menu = (order_id) =>{
     return (<div>
       <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
-        <Menu.Item keys="1" defaultValue={order_id} icon={<UserOutlined />}>
+        <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
           View {order_id}
         </Menu.Item>
-        <Menu.Item keys="2" icon={<UserOutlined />}>
+        <Menu.Item key="2" icon={<UserOutlined />}>
           Edit
         </Menu.Item>
-        <Menu.Item keys="3" icon={<UserOutlined />}>
+        <Menu.Item key="3" icon={<UserOutlined />}>
           Delete
         </Menu.Item>
-        <Menu.Item keys="3" icon={<UserOutlined />}>
+        <Menu.Item key="4" icon={<UserOutlined />}>
           PDF
         </Menu.Item>
       </Menu>
@@ -79,13 +79,8 @@ const Index = () => {
         dataIndex: "order_id",
         key: "order_id",
         render: (text,record) => (<>
-        <a style={{marginRight:"5px"}}>
-          {text}</a>
-          <Dropdown overlay={menu(record.order_id)}>
-        <Button>
-          Button <DownOutlined />
-        </Button>
-      </Dropdown>
+        <span style={{marginRight:"5px"}}>
+          {text}</span>
         </>),
         align: "center",
       },
@@ -128,7 +123,18 @@ const Index = () => {
         responsive: ["lg"],
         align: "center",
       },
-     
+      {
+        title: "ดำเนินการ",
+        render: (record) => (
+          <Dropdown overlay={menu(record.order_id)}>
+        <Button>
+          Button <DownOutlined />
+        </Button>
+      </Dropdown>
+        ),
+        responsive: ["md"],
+        align: "center",
+      },
     ];
   return (
     <StyledWrapper>
