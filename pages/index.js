@@ -111,7 +111,14 @@ const Index = () => {
       },
       {
         title: "สถานะ",
-        render: (record) => record.status_id.s_detail_en,
+        render: (record) => {
+          if(record.status_id.s_detail_en === 'Wait'){
+            return <Tag color="#f50">รอการตรวจสอบ</Tag>
+          }
+          else if (record.status_id.s_detail_en === 'Pass'){
+            return <Tag color="#87d068">ผ่าน</Tag>
+          }
+        },
         responsive: ["lg"],
         align: "center",
       },
@@ -121,21 +128,7 @@ const Index = () => {
         responsive: ["lg"],
         align: "center",
       },
-      {
-        title: "ดำเนินการ",
-        render: (record) => (
-          <Space size="small">
-            <div>
-              <Button style={{marginRight: '5px'}} type="primary">primary</Button>
-              <Button style={{marginRight: '5px'}} type="ghost">ghost</Button>
-              <Button style={{marginRight: '5px'}} type="dashed">dashed</Button>
-              <Button style={{marginRight: '5px'}} type="danger">danger</Button>
-            </div>
-          </Space>
-        ),
-        responsive: ["md"],
-        align: "center",
-      },
+     
     ];
   return (
     <StyledWrapper>
