@@ -46,24 +46,70 @@ const StyledWrapper = styled.div`
     text-decoration: none;
     list-style: none;
   }
-  ul.menu li a{
+  ul.menu li a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
-    transition: .3 ease-ease-in-out;
+    transition: 0.3 ease-ease-in-out;
     padding: 5px 10px;
   }
-  ul.menu li a:hover{
+  ul.menu li a:hover {
     background: #40aed7;
     padding: 5px 10px;
     border-radius: 5px;
   }
-
+  ul.menu ul li {
+    display: none;
+  }
+  ul.menu ul li:hover {
+    display: inline;
+  }
   /* ------------------------------------ End header  ------------------------------------*/
 
   /* ------------------------------------ Start section  ------------------------------------*/
 
+  .content {
+    margin: 0 auto;
+    max-width: 960px;
+    height: auto;
+  }
+  .content-heading {
+  }
   /* ------------------------------------ End section  ------------------------------------*/
+  /* ------------------------------------ Start Footer  ------------------------------------*/
+
+  .copyright {
+    width: 100%;
+    height: 60px;
+    background-color: #01273c;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: white;
+  }
+  .copyright-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 60px;
+    color: white;
+  }
+  .copytext {
+    justify-self: flex-start;
+    align-self: center;
+  }
+  .creadit {
+    justify-self: flex-end;
+    align-self: center;
+  }
+  .content-heading img {
+    width: 100%;
+  }
+  .nav li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+  }
+  /* ------------------------------------ End Footer  ------------------------------------*/
 `;
 
 const Index = () => {
@@ -89,6 +135,14 @@ const Index = () => {
                   </li>
                   <li>
                     <a href="#">profile</a>
+                    <ul>
+                      <li>
+                        <a href="#">ข้อมูลส่วนตัว</a>
+                      </li>
+                      <li>
+                        <a href="#">ออกจากระบบ</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
